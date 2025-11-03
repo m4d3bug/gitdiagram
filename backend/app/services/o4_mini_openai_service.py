@@ -16,7 +16,7 @@ class OpenAIo4Service:
             api_key=os.getenv("OPENAI_API_KEY"),
         )
         self.encoding = tiktoken.get_encoding("o200k_base")  # Encoder for OpenAI models
-        self.base_url = "https://api.openai.com/v1/chat/completions"
+        self.base_url = "https://api.siliconflow.cn/v1/chat/completions"
 
     def call_o4_api(
         self,
@@ -48,7 +48,7 @@ class OpenAIo4Service:
             )
 
             completion = client.chat.completions.create(
-                model="o4-mini",
+                model="deepseek-ai/DeepSeek-V3.2-Exp",
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_message},
@@ -115,7 +115,7 @@ class OpenAIo4Service:
         # }
 
         payload = {
-            "model": "o4-mini",
+            "model": "deepseek-ai/DeepSeek-V3.2-Exp",
             "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_message},
